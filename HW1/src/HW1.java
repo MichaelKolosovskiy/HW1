@@ -11,7 +11,7 @@ public class Homework1{
         System.out.println(factorial(4));
         System.out.println(fibonacci(4));
 
-        int[] list = new int[100];
+        int[] list = new int[1000000];
         for (int i = 0; i < list.length; i++) {
             int n = (int) (Math.random() * list.length);
             list[i] = n;
