@@ -1,6 +1,5 @@
-
 public class Homework1{ 
-	
+
     public static void main(String[] args) {
 
         System.out.println(game(0, 0, 1, 1));
@@ -11,7 +10,7 @@ public class Homework1{
         System.out.println(factorial(4));
         System.out.println(fibonacci(7));
 
-        int[] list = new int[1000000];
+        int[] list = new int[10000];
         for (int i = 0; i < list.length; i++) {
             int n = (int) (Math.random() * list.length);
             list[i] = n;
@@ -54,13 +53,16 @@ public class Homework1{
     public static void diamond(int number) {
 
         int space = number - 1;
+        final char Star = '*';
+        final char Space = ' ';
 
         for (int line = 0; line < number; line++) {
             for (int i = 0; i < space; i++) {
-                System.out.print(" ");
+                System.out.print(Space);
             }
             for (int star = 0; star <= line; star++) {
-                System.out.print("* ");
+                System.out.print(Star);
+                System.out.print(Space);
             }
             System.out.println();
             space--;
@@ -71,13 +73,14 @@ public class Homework1{
 
         for (int line = number; line > 0; line--) {
             for (int i = 0; i < space; i++) {
-                System.out.print(" ");
+                System.out.print(Space);
             }
             for (int star = 0; star < line; star++) {
-            	 System.out.print("* ");          	 
+            	 System.out.print(Star);
+            	 System.out.print(Space);
             }
             space++;
-            System.out.println(" ");
+            System.out.println(Space);
         }
     }
 
@@ -113,18 +116,18 @@ public class Homework1{
     // 1.4.1
 
     public static int factorial(int number) {
-        return (number < 0) ? 0 : (number == 0 || number == 1) ? 1 : factorial(number - 1) * number;
+    	return (number == 0 || number == 1) ? 1 : factorial(number - 1) * number; 
     }
 
     // 1.4.2
 
     public static int fibonacci(int number) {
-    	return(number == 0) ? 0 : (number == 1) ? 1 : fibonacci(number - 1) + fibonacci(number - 2);
+    	return (number == 1||number==0) ? number : fibonacci(number - 1) + fibonacci(number - 2);
     }
     
     // 1.5
     
-    public static void swap(int i, int j){
+    private static void swap(int i, int j){
     	int buf = j;
     	j = i;
     	i = buf;
