@@ -7,11 +7,11 @@ public class Homework1{
         diamond(3);
         System.out.println(square(3));
         System.out.println(cube(3));
-        System.out.println(extent(2, -3));
+        System.out.println(extent(2, 0));
         System.out.println(factorial(4));
-        System.out.println(fibonacci(4));
+        System.out.println(fibonacci(7));
 
-        int[] list = new int[1000000];
+        int[] list = new int[100];
         for (int i = 0; i < list.length; i++) {
             int n = (int) (Math.random() * list.length);
             list[i] = n;
@@ -45,8 +45,8 @@ public class Homework1{
 
     // 1.1
 
-    public static int game(int res_1, int res_2, int bet_1, int bet_2) {
-        return ((res_1 == bet_1) && (res_2 == bet_2)) ? 2 : ((res_1 != bet_1) && (res_2 != bet_2) ? 0 : 1);
+    public static int game(int resOne, int resTwo, int bet1One, int betTwo) {
+        return ((resOne == bet1One) && (resTwo == betTwo)) ? 2 : ((resOne != bet1One) && (resTwo != betTwo) ? 0 : 1);
     }
 
     // 1.2
@@ -102,7 +102,7 @@ public class Homework1{
     		for (int c = 0; c < extent * (-1); c++) {
                 sumMin *= number;
             }
-    		sum = 1/sumMin;
+    		sum = 1 / sumMin;
         } else {
             for (int i = 0; i < extent; i++) {
                 sum *= number;
@@ -120,15 +120,10 @@ public class Homework1{
     // 1.4.2
 
     public static int fibonacci(int number) {
-        if (number == 0) {
-            return 0;
-        }
-        if (number == 1) {
-            return 1;
-        }
-        return fibonacci(number - 1) + fibonacci(number - 2);
+    	
+    	return(number == 0) ? 0 : (number == 1) ? 1 : fibonacci(number - 1) + fibonacci(number - 2);
     }
-
+    
     // 1.5
 
     public static void insertionSort(int[] arr) {
