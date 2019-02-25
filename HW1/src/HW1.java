@@ -1,17 +1,17 @@
 
 public class Homework1{ 
-
+	
     public static void main(String[] args) {
 
         System.out.println(game(0, 0, 1, 1));
         diamond(3);
         System.out.println(square(3));
         System.out.println(cube(3));
-        System.out.println(extent(2, 0));
+        System.out.println(extent(2, 3));
         System.out.println(factorial(4));
         System.out.println(fibonacci(7));
 
-        int[] list = new int[100];
+        int[] list = new int[10000];
         for (int i = 0; i < list.length; i++) {
             int n = (int) (Math.random() * list.length);
             list[i] = n;
@@ -45,8 +45,8 @@ public class Homework1{
 
     // 1.1
 
-    public static int game(int resOne, int resTwo, int bet1One, int betTwo) {
-        return ((resOne == bet1One) && (resTwo == betTwo)) ? 2 : ((resOne != bet1One) && (resTwo != betTwo) ? 0 : 1);
+    public static int game(int resOne, int resTwo, int betOne, int betTwo) {
+        return ((resOne == betOne) && (resTwo == betTwo)) ? 2 : ((resOne != betOne) && (resTwo != betTwo) ? 0 : 1);
     }
 
     // 1.2
@@ -56,7 +56,7 @@ public class Homework1{
         int space = number - 1;
 
         for (int line = 0; line < number; line++) {
-            for (int y = 0; y < space; y++) {
+            for (int i = 0; i < space; i++) {
                 System.out.print(" ");
             }
             for (int star = 0; star <= line; star++) {
@@ -70,11 +70,11 @@ public class Homework1{
         number -= 1;
 
         for (int line = number; line > 0; line--) {
-            for (int y = 0; y < space; y++) {
+            for (int i = 0; i < space; i++) {
                 System.out.print(" ");
             }
             for (int star = 0; star < line; star++) {
-                System.out.print("* ");
+            	 System.out.print("* ");          	 
             }
             space++;
             System.out.println(" ");
@@ -83,32 +83,31 @@ public class Homework1{
 
     // 1.3
 
-    public static double square(double i) {
-        return i * i;
+    public static double square(double number) {
+        return number * number;
     }
 
-    public static double cube(double x) {
-        return x * x * x;
+    public static double cube(double number) {
+        return number * number * number;
     }
 
     public static double extent(double number, int extent) {
     	
-    	double sum = 1;
-    	double sumMin =1;
-    	 
+    	double product = 1;
+    	
         if (extent == 0) {
-         return sum;
+         return product;
         }else if(extent < 0) {
-    		for (int c = 0; c < extent * (-1); c++) {
-                sumMin *= number;
+    		for (int j = 0; j < extent * (-1); j++) {
+    			product *= number;
             }
-    		sum = 1 / sumMin;
+    		product = 1/product;
         } else {
             for (int i = 0; i < extent; i++) {
-                sum *= number;
+            	product *= number;
             }
         }
-		return sum;
+		return product;
     }
 
     // 1.4.1
@@ -120,11 +119,16 @@ public class Homework1{
     // 1.4.2
 
     public static int fibonacci(int number) {
-    	
     	return(number == 0) ? 0 : (number == 1) ? 1 : fibonacci(number - 1) + fibonacci(number - 2);
     }
     
     // 1.5
+    
+    public static void swap(int i, int j){
+    	int buf = j;
+    	j = i;
+    	i = buf;
+    }
 
     public static void insertionSort(int[] arr) {
         int buf;
@@ -162,9 +166,7 @@ public class Homework1{
                     element = j;
                 }
             }
-            int buf = arr[i];
-            arr[i] = arr[element];
-            arr[element] = buf;
+            swap(element, i);
         }
     }
 
@@ -172,9 +174,7 @@ public class Homework1{
         for (int j = 0; j < arr.length; j++) {
             for (int i = 1; i < arr.length - j; i++) {
                 if (arr[i] < arr[i - 1]) {
-                    int tmp = arr[i - 1];
-                    arr[i - 1] = arr[i];
-                    arr[i] = tmp;
+                	swap(i, i - 1);
                 }
             }
         }
