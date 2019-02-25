@@ -1,5 +1,5 @@
 
-public class HW1{ 
+public class Homework1{ 
 
     public static void main(String[] args) {
 
@@ -7,42 +7,46 @@ public class HW1{
         diamond(3);
         System.out.println(square(3));
         System.out.println(cube(3));
-        extent(2, 2);
+        System.out.println(extent(2, -3));
         System.out.println(factorial(4));
         System.out.println(fibonacci(4));
 
-        int ArrSise = 100;
-        int[] list = new int[ArrSise];
-        for (int i = 0; i < ArrSise; i++) {
-            int n = (int) (Math.random() * ArrSise);
+        int[] list = new int[100];
+        for (int i = 0; i < list.length; i++) {
+            int n = (int) (Math.random() * list.length);
             list[i] = n;
         }
-        long tB_Bbl = System.currentTimeMillis();
+        
+        long timeBefore = System.currentTimeMillis();
         bubbleSort(list);
-        long tA_Bbl = System.currentTimeMillis();
-        System.out.println("Bubble time = " + (tA_Bbl - tB_Bbl) + " ms;");
+        long timeAfter = System.currentTimeMillis();
+        long time = timeAfter - timeBefore;
+        System.out.println("Bubble time = " + (time) + " ms;");
 
-        long tB_Slctn = System.currentTimeMillis();
+        timeBefore = System.currentTimeMillis();
         selectionSort(list);
-        long tA_Slctn = System.currentTimeMillis();
-        System.out.println("Selection time = " + (tA_Slctn - tB_Slctn) + " ms;");
+        timeAfter = System.currentTimeMillis();
+        time = timeAfter - timeBefore;
+        System.out.println("Selection time = " + (time) + " ms;");
 
-        long tB_Insrtn = System.currentTimeMillis();
+        timeBefore = System.currentTimeMillis();
         insertionSort(list);
-        long tA_Insrtn = System.currentTimeMillis();
-        System.out.println("Insertion time = " + (tA_Insrtn - tB_Insrtn) + " ms;");
+        timeAfter = System.currentTimeMillis();
+        time = timeAfter - timeBefore;
+        System.out.println("Insertion time = " + (time) + " ms;");
 
-        long tB_Shell = System.currentTimeMillis();
-        shellSort(list, ArrSise);
-        long tA_Shell = System.currentTimeMillis();
-        System.out.println("Shell time = " + (tA_Shell - tB_Shell) + " ms;");
-
+        timeBefore = System.currentTimeMillis();
+        shellSort(list);
+        timeAfter = System.currentTimeMillis();
+        time = timeAfter - timeBefore;
+        System.out.println("Shell time = " + (time) + " ms;");
+        
     }
 
     // 1.1
 
-    public static int game(int result_1, int result_2, int bet_1, int bet_2) {
-        return ((result_1 == bet_1) && (result_2 == bet_2)) ? 2 : ((result_1 != bet_1) && (result_2 != bet_2) ? 0 : 1);
+    public static int game(int res_1, int res_2, int bet_1, int bet_2) {
+        return ((res_1 == bet_1) && (res_2 == bet_2)) ? 2 : ((res_1 != bet_1) && (res_2 != bet_2) ? 0 : 1);
     }
 
     // 1.2
@@ -87,17 +91,24 @@ public class HW1{
         return x * x * x;
     }
 
-    public static void extent(double number, int extent) {
-        if (extent < 0) {
-            System.out.println("Степінь має бути додатнім.");
+    public static double extent(double number, int extent) {
+    	
+    	double sum = 1;
+    	double sumMin =1;
+    	 
+        if (extent == 0) {
+         return sum;
+        }else if(extent < 0) {
+    		for (int c = 0; c < extent * (-1); c++) {
+                sumMin *= number;
+            }
+    		sum = 1/sumMin;
         } else {
-            int sum = 1;
             for (int i = 0; i < extent; i++) {
                 sum *= number;
             }
-            System.out.println(sum);
         }
-
+		return sum;
     }
 
     // 1.4.1
@@ -133,11 +144,11 @@ public class HW1{
         }
     }
 
-    public static void shellSort(int[] arr, int length) {
-        int x = length / 2;
+    public static void shellSort(int[] arr) {
+        int x = arr.length / 2;
         while (x > 0) {
             int j = 0;
-            for (int i = x; i < length; i++) {
+            for (int i = x; i < arr.length; i++) {
                 int buf = arr[i];
                 for (j = i; j >= x && arr[j - x] > buf; j -= x) {
                     arr[j] = arr[j - x];
