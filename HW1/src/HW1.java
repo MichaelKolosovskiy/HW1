@@ -2,7 +2,9 @@
 public class Homework1{ 
 	
     public static void main(String[] args) {
-
+	
+	private static final char STAR = '*';
+    	private static final char SPACE = ' ';
         System.out.println(game(0, 0, 1, 1));
         diamond(3);
         System.out.println(square(3));
@@ -51,9 +53,6 @@ public class Homework1{
 
     // 1.2
 	
-    private static final char STAR = '*';
-    private static final char SPACE = ' ';
-
     public static void diamond(int number) {
 
         int space = number - 1;
