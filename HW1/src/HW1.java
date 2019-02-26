@@ -42,9 +42,7 @@ public class Homework1{
         System.out.println("Shell time = " + (time) + " ms;");
         
     }
-    private static final char STAR = '*';
-    private static final char SPACE = ' ';
-
+	
     // 1.1
 
     public static int game(int resOne, int resTwo, int betOne, int betTwo) {
@@ -52,6 +50,9 @@ public class Homework1{
     }
 
     // 1.2
+	
+    private static final char STAR = '*';
+    private static final char SPACE = ' ';
 
     public static void diamond(int number) {
 
