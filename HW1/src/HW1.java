@@ -54,16 +54,16 @@ public class Homework1{
     public static void diamond(int number) {
 
         int space = number - 1;
-        final char Star = '*';
-        final char Space = ' ';
+        final char STAR = '*';
+        final char SPACE = ' ';
 
         for (int line = 0; line < number; line++) {
             for (int i = 0; i < space; i++) {
-                System.out.print(Space);
+                System.out.print(SPACE);
             }
             for (int star = 0; star <= line; star++) {
-                System.out.print(Star);
-                System.out.print(Space);
+                System.out.print(STAR);
+                System.out.print(SPACE);
             }
             System.out.println();
             space--;
@@ -74,14 +74,14 @@ public class Homework1{
 
         for (int line = number; line > 0; line--) {
             for (int i = 0; i < space; i++) {
-                System.out.print(Space);
+                System.out.print(SPACE);
             }
             for (int star = 0; star < line; star++) {
-            	 System.out.print(Star);
-            	 System.out.print(Space);
+            	 System.out.print(STAR);
+            	 System.out.print(SPACE);
             }
             space++;
-            System.out.println(Space);
+            System.out.println(SPACE);
         }
     }
 
