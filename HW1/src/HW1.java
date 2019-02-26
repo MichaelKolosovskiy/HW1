@@ -42,6 +42,8 @@ public class Homework1{
         System.out.println("Shell time = " + (time) + " ms;");
         
     }
+    private static final char STAR = '*';
+    private static final char SPACE = ' ';
 
     // 1.1
 
@@ -54,9 +56,7 @@ public class Homework1{
     public static void diamond(int number) {
 
         int space = number - 1;
-        private static final char STAR = '*';
-        private static final char SPACE = ' ';
-
+     
         for (int line = 0; line < number; line++) {
             for (int i = 0; i < space; i++) {
                 System.out.print(SPACE);
