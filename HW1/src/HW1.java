@@ -54,8 +54,8 @@ public class Homework1{
     public static void diamond(int number) {
 
         int space = number - 1;
-        static final char STAR = '*';
-        static final char SPACE = ' ';
+        private static final char STAR = '*';
+        private static final char SPACE = ' ';
 
         for (int line = 0; line < number; line++) {
             for (int i = 0; i < space; i++) {
